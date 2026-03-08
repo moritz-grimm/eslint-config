@@ -1,6 +1,6 @@
 # Rule Configuration
 
-This document provides a detailed overview of all rules included in `eslint-config-moritz-grimm`.
+This document provides a detailed overview of all rules included in `@moritz-grimm/eslint-config`.
 
 ---
 
@@ -506,7 +506,7 @@ You don't need to manually define these globals.
 You can override any rule in your `eslint.config.js`:
 
 ```js
-import eslintConfig from "eslint-config-moritz-grimm";
+import eslintConfig from "@moritz-grimm/eslint-config";
 
 export default [
     ...eslintConfig,
