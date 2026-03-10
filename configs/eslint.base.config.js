@@ -19,5 +19,6 @@ export default [
             "no-unreachable": "error",
             "no-duplicate-imports": "warn",
             "prefer-const": "warn",
+            "camelcase": "error",
         },
     }];

@@ -36,7 +36,7 @@ Core linting rules applicable to both JavaScript and TypeScript files (`**/*.{js
 
 ### Error Prevention
 
-#### `eqeqeq: ["warn", "always"]`
+#### `eqeqeq: ["error", "always"]`
 
 **Always use strict equality (`===` and `!==`) instead of loose equality (`==` and `!=`).**
 
@@ -51,6 +51,24 @@ if (value !== null) { }
 ```
 
 **Why?** Loose equality can lead to unexpected type coercion bugs.
+
+---
+
+#### `camelcase: "error"`
+
+**Enforce camelCase naming convention.**
+
+```js
+// ❌ Bad
+const my_variable = 42;
+function get_user_name() { }
+
+// ✅ Good
+const myVariable = 42;
+function getUserName() { }
+```
+
+**Why?** Consistent naming conventions improve readability and are a fundamental JavaScript convention.
 
 ---
 
