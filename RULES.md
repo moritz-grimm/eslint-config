@@ -547,4 +547,4 @@ export default [
 
 ## Questions or Issues?
 
-If you find bugs, have suggestions, or want to discuss specific rules, feel free to open an issue on [GitHub](https://github.com/Moritz-Grimm/eslint-config-moritz-grimm).
+If you find bugs, have suggestions, or want to discuss specific rules, feel free to open an issue on [GitHub](https://github.com/Moritz-Grimm/eslint-config).
