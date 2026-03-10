@@ -7,13 +7,13 @@
         "eslintconfig",
         "config"
     ],
-    "homepage": "https://github.com/Moritz-Grimm/eslint-config-moritz-grimm#readme",
+    "homepage": "https://github.com/Moritz-Grimm/eslint-config#readme",
     "bugs": {
-        "url": "https://github.com/Moritz-Grimm/eslint-config-moritz-grimm/issues"
+        "url": "https://github.com/Moritz-Grimm/eslint-config/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Moritz-Grimm/eslint-config-moritz-grimm.git"
+        "url": "git+https://github.com/Moritz-Grimm/eslint-config.git"
     },
     "license": "MIT",
     "author": "moritz-grimm",

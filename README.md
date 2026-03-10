@@ -1,4 +1,4 @@
-# eslint-config-moritz-grimm
+# eslint-config
 
 My preferred ESLint config for JavaScript and TypeScript projects.
 
