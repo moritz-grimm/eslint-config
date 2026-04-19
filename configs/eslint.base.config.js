@@ -5,7 +5,7 @@ import ignores from "./eslint.ignores.config.js";
 export default [
     ...ignores,
     {
-        files: ["**/*.{js,mjs,cjs}"],
+        files: [ "**/*.{js,mjs,cjs}" ],
         ...js.configs.recommended,
         languageOptions: {
             globals: {
@@ -14,7 +14,7 @@ export default [
             },
         },
         rules: {
-            "eqeqeq": ["error", "always"],
+            "eqeqeq": [ "error", "always" ],
             "no-undef": "error",
             "no-unreachable": "error",
             "no-duplicate-imports": "warn",
