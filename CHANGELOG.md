@@ -14,16 +14,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.0.3] - 2026-03-10
+## [2.1.0] - 2026-04-18
 
 ### Added
 
-- Added `camelcase` rule with level `"error"`
+- Added `@typescript-eslint/comma-dangle: ["warn", "always-multiline"]` rule. TypeScript files missing trailing commas in multiline constructs will now produce a **warning**.
+
+## [2.0.0] - 2026-03-10
+
+### Breaking Changes
+
+- Added `camelcase: "error"` rule. Any identifier using `snake_case` or other non-camelCase naming will now produce an ESLint **error**.
+
+> [!NOTE]
+> Although the CHANGELOG was initially written with the label `1.0.3`, `package.json`
+> was already bumped to `2.0.0` at this point because adding a new `"error"`-level rule
+> is a breaking change for existing consumers. The label has been corrected here to
+> match the published version.
+
+### Added
+
 - Added CHANGELOG.md
 
 ### Changed
 
-- Updated RULES.md to include new `camelcase` rule
 - `eqeqeq` rule documentation in RULES.md corrected from `"warn"` to `"error"` to match the actual config (the rule itself was already `"error"` since the modularization in the pre-rename era)
 
 ---

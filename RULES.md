@@ -494,6 +494,28 @@ function example(_unusedParam: string) {
 
 ---
 
+#### `@typescript-eslint/comma-dangle: ["error", "always-multiline"]`
+
+**Enforce trailing commas in multiline TypeScript constructs.**
+
+```ts
+// ❌ Bad
+type User = {
+    name: string,
+    age: number
+};
+
+// ✅ Good
+type User = {
+    name: string,
+    age: number,
+};
+```
+
+**Why?** Consistent with the stylistic `comma-dangle` rule and keeps TypeScript-specific syntax (interfaces, type literals, enums) clean and diff-friendly.
+
+---
+
 ### Included Presets
 
 This config also includes all rules from:
