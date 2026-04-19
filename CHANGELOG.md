@@ -14,6 +14,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.0] - 2026-04-19
+
+### Added
+
+- Added stylistic spacing rules:
+  - `stylistic/comma-spacing` — space after commas, not before
+  - `stylistic/member-delimiter-style` — semicolons in interfaces and type literals
+  - `stylistic/array-bracket-spacing: "always"` — spaces inside array brackets
+  - `stylistic/computed-property-spacing: "never"` — no spaces in computed property brackets
+  - `stylistic/key-spacing` — space after colon in object keys, not before
+  - `stylistic/semi-spacing` — space after semicolons, not before
+  - `stylistic/space-infix-ops` — spaces around operators
+  - `stylistic/arrow-spacing` — spaces around `=>`
+  - `stylistic/block-spacing` — spaces inside single-line blocks
+  - `stylistic/space-before-blocks` — space before `{`
+  - `stylistic/space-in-parens: "never"` — no spaces inside parentheses
+  - `stylistic/template-curly-spacing: "never"` — no spaces in `${...}`
+  - `stylistic/switch-colon-spacing` — space after colon in switch cases, not before
+- Added TypeScript rules:
+  - `@typescript-eslint/consistent-type-imports` — enforce `import type` for type-only imports
+  - `@typescript-eslint/no-unnecessary-type-assertion` — warn on redundant `as` casts
+
+### Removed
+
+- Removed `@typescript-eslint/comma-dangle` from the TypeScript config (redundant with `stylistic/comma-dangle`, and deprecated by typescript-eslint)
+
 ## [2.1.0] - 2026-04-18
 
 ### Added

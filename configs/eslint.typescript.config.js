@@ -25,7 +25,8 @@ export default [
                     constructors: "no-public",
                 },
             }],
-            "@typescript-eslint/comma-dangle": ["warn", "always-multiline"],
+            "@typescript-eslint/consistent-type-imports": "warn",
+            "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         },
     },
 ];

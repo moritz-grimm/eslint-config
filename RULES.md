@@ -258,6 +258,44 @@ const obj = {
 
 ---
 
+### Commas and Delimiters
+
+#### `stylistic/comma-spacing: ["warn", { before: false, after: true }]`
+
+**Require a space after commas, but not before.**
+
+```js
+// ⚠️ Warning
+const arr = [1 ,2 ,3];
+const obj = { a:1,b:2 };
+
+// ✅ Good
+const arr = [1, 2, 3];
+const obj = { a: 1, b: 2 };
+```
+
+---
+
+#### `stylistic/member-delimiter-style: "warn"`
+
+**Enforce semicolons as delimiters in interfaces and type literals.**
+
+```ts
+// ⚠️ Warning
+interface User {
+    name: string,
+    age: number,
+}
+
+// ✅ Good
+interface User {
+    name: string;
+    age: number;
+}
+```
+
+---
+
 ### Spacing
 
 #### `stylistic/object-curly-spacing: ["warn", "always"]`
@@ -270,6 +308,34 @@ const obj = {a: 1, b: 2};
 
 // ✅ Good
 const obj = { a: 1, b: 2 };
+```
+
+---
+
+#### `stylistic/array-bracket-spacing: ["warn", "always"]`
+
+**Require spaces inside array brackets.**
+
+```js
+// ⚠️ Warning
+const arr = [1, 2, 3];
+
+// ✅ Good
+const arr = [ 1, 2, 3 ];
+```
+
+---
+
+#### `stylistic/computed-property-spacing: ["warn", "never"]`
+
+**Disallow spaces inside computed property brackets.**
+
+```js
+// ⚠️ Warning
+const value = obj[ key ];
+
+// ✅ Good
+const value = obj[key];
 ```
 
 ---
@@ -345,6 +411,152 @@ const value  =  42;
 
 // ✅ Good
 const value = 42;
+```
+
+---
+
+#### `stylistic/key-spacing: ["warn", { beforeColon: false, afterColon: true }]`
+
+**Require a space after the colon in object keys, but not before.**
+
+```js
+// ⚠️ Warning
+const obj = { name :"Moritz", age :30 };
+
+// ✅ Good
+const obj = { name: "Moritz", age: 30 };
+```
+
+---
+
+#### `stylistic/semi-spacing: ["warn", { before: false, after: true }]`
+
+**Require a space after semicolons, but not before.**
+
+```js
+// ⚠️ Warning
+for (let i = 0 ;i < 10 ;i++) { }
+
+// ✅ Good
+for (let i = 0; i < 10; i++) { }
+```
+
+---
+
+#### `stylistic/space-infix-ops: "warn"`
+
+**Require spaces around infix operators.**
+
+```js
+// ⚠️ Warning
+const sum = a+b;
+const check = value===true;
+
+// ✅ Good
+const sum = a + b;
+const check = value === true;
+```
+
+---
+
+#### `stylistic/arrow-spacing: "warn"`
+
+**Require spaces before and after the arrow in arrow functions.**
+
+```js
+// ⚠️ Warning
+const fn = (x)=>x + 1;
+
+// ✅ Good
+const fn = (x) => x + 1;
+```
+
+---
+
+#### `stylistic/block-spacing: "warn"`
+
+**Require spaces inside single-line blocks.**
+
+```js
+// ⚠️ Warning
+if (condition) {return true;}
+
+// ✅ Good
+if (condition) { return true; }
+```
+
+---
+
+#### `stylistic/space-before-blocks: "warn"`
+
+**Require a space before opening braces.**
+
+```js
+// ⚠️ Warning
+if (condition){
+    doSomething();
+}
+function example(){
+    return true;
+}
+
+// ✅ Good
+if (condition) {
+    doSomething();
+}
+function example() {
+    return true;
+}
+```
+
+---
+
+#### `stylistic/space-in-parens: ["warn", "never"]`
+
+**Disallow spaces inside parentheses.**
+
+```js
+// ⚠️ Warning
+const result = foo( bar, baz );
+if ( condition ) { }
+
+// ✅ Good
+const result = foo(bar, baz);
+if (condition) { }
+```
+
+---
+
+#### `stylistic/template-curly-spacing: ["warn", "never"]`
+
+**Disallow spaces inside template literal placeholders.**
+
+```js
+// ⚠️ Warning
+const greeting = `Hello, ${ name }!`;
+
+// ✅ Good
+const greeting = `Hello, ${name}!`;
+```
+
+---
+
+#### `stylistic/switch-colon-spacing: ["warn", { before: false, after: true }]`
+
+**Require a space after the colon in switch cases, but not before.**
+
+```js
+// ⚠️ Warning
+switch (value) {
+    case 1 :doSomething();
+        break;
+}
+
+// ✅ Good
+switch (value) {
+    case 1: doSomething();
+        break;
+}
 ```
 
 ---
@@ -494,25 +706,48 @@ function example(_unusedParam: string) {
 
 ---
 
-#### `@typescript-eslint/comma-dangle: ["error", "always-multiline"]`
+#### `@typescript-eslint/consistent-type-imports: "warn"`
 
-**Enforce trailing commas in multiline TypeScript constructs.**
+**Enforce using `import type` for imports that are only used as types.**
 
 ```ts
-// ❌ Bad
-type User = {
-    name: string,
-    age: number
-};
+// ⚠️ Warning
+import { User } from "./types"; // User is only used as a type
+function greet(user: User): string {
+    return `Hello, ${user.name}`;
+}
 
 // ✅ Good
-type User = {
-    name: string,
-    age: number,
-};
+import type { User } from "./types";
+function greet(user: User): string {
+    return `Hello, ${user.name}`;
+}
 ```
 
-**Why?** Consistent with the stylistic `comma-dangle` rule and keeps TypeScript-specific syntax (interfaces, type literals, enums) clean and diff-friendly.
+**Why?** Type-only imports are erased at compile time and make the intent clearer. They also improve tree-shaking since bundlers can safely remove the import.
+
+---
+
+#### `@typescript-eslint/no-unnecessary-type-assertion: "warn"`
+
+**Warn when a type assertion (`as`) does not change the type of an expression.**
+
+```ts
+// ⚠️ Warning
+const name = "hello";
+const x = name as string; // already a string
+
+function process(value: string | null) {
+    if (value !== null) {
+        console.log(value as string); // already narrowed to string
+    }
+}
+
+// ✅ Good (assertion actually changes the type)
+const el = document.getElementById("app") as HTMLElement;
+```
+
+**Why?** Redundant type assertions add noise and can mask actual type issues during refactoring.
 
 ---
 
